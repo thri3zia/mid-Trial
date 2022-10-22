@@ -13,26 +13,24 @@ public class Classification{
     private String genre;
     private String name;
     private String artist;
-    private Date release;
+    private String fave;
+    private String identify;
 
 
+    public Classification(){
 
-    public Classification(String genre2, String artist2, String name2, java.util.Date release2) {
     }
 
 
-    public void Classification( String genre, String artist,String name,Date release) throws javaException{ 
 
-        this.genre = genre;
-        this.artist = artist;
+    public Classification(String genre, String artist, String name, String fave, String identify ) {
         this.name = name;
-        this.release = release;
+        this.genre = genre;
+        this. artist = artist;
+        this.fave = fave;
+        this.identify = identify;
     }
 
-    
-    /*    Classification(String genre, String artist, String name, java.util.Date release) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
     public void setGenre(String genre){
         this.genre = genre;
     }
@@ -55,11 +53,17 @@ public class Classification{
         return artist;
     }
 
-    public void setRelease(Date release){
-        this.release = release;
+    public void setFave(String fave){
+        this.fave = fave;
     }
-     public Date getRelease(){
-        return release;
+     public String getFave(){
+        return fave;
+     }
+     public void setIdentify(String identify){
+        this.identify = identify;
+    }
+     public String getIdentify(){
+        return identify;
      }
 
     
