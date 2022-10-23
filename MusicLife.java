@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */ 
+
 package musiclife;
 
 import java.text.ParseException;
@@ -22,69 +18,96 @@ public class MusicLife {
         ArrayList <Classification> musicList = new ArrayList();
         char choice;   
         String genre,artist,name,fave,identify;
+
+        System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println("  @@       *******      YOUR OWN SONG LIST        *******      @@ ");
+        System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
  
         do{
-            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            System.out.println("  @@       *******      YOUR OWN SONG LIST        *******      @@ ");
-            System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            // System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            // System.out.println("  @@       *******      YOUR OWN SONG LIST        *******      @@ ");
+            // System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ");
             System.out.println("  @@                  Choose from below:                       @@ ");
-            System.out.print("    @@                      A. Add                               @@ ");
-            System.out.print("\n  @@                      B. Remove                            @@ "); 
-            System.out.print("\n  @@                      C. Display                           @@ ");
-            System.out.print("\n  @@                      X. Exit                              @@");
-            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-
-            System.out.print("\nSelected option: ");
+            System.out.println("  @@                     [A] Add                               @@ ");
+            System.out.println("  @@                     [B] Remove                            @@ "); 
+            System.out.println("  @@                     [C] Display                           @@ ");
+            System.out.println("  @@                     [X] Exit                              @@ ");
+            System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            System.out.print("Selected option: ");
             choice = input.next().charAt(0);
+            
             
            switch (choice) {
                  
                 case 'A':
-                    System.out.println("\n***** ADD THE CORRESPONDING DETAILS *****");
                     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    System.out.print("  Your own identifier for the song : ");
+                    System.out.println("@@          ***** ADD THE CORRESPONDING DETAILS *****        @@");
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.print("\n[1.] YOUR OWN IDENTIFIER FOR THE SONG : ");
                     identify = input.next();
                     Pattern p = Pattern.compile("[^A-Za-z]");
                     Matcher m = p.matcher(identify);
                     if(m.find()){
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                        System.out.println("     Your identifier contains Special Characters. PLease input again.");
-                        System.out.println("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("  XX   WARNING!!!                                                               XX ");
+                        System.out.println("  XX         Your identifier contains Special Characters. PLease input again.   XX");
+                        System.out.println("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         break;
                     }
                     // ==============================================================================
-                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    System.out.print("    Name of the Song : ");
+                    System.out.println("\n===============================================================");
+                    System.out.print("\n[2.] NAME OF THE SONG: ");
                     name = input.next();
                     
                     // ==============================================================================
-                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    System.out.print("    Name of the Singer : ");
+                    System.out.println("\n===============================================================");
+                    System.out.print("\n[3.] NAME OF THE ARTIST/SINGER: ");
                     artist = input.next();
                     p = Pattern.compile("[^A-Za-z0-9 ]");
                     m = p.matcher(name);
                     if(m.find()){
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-                        System.out.println("    The entered name contains Special Characters. PLease input again.");
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("  XX   WARNING!!!                                                                XX ");
+                        System.out.println("  XX         The entered name contains Special Characters. PLease input again.   XX");
+                        System.out.println("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         break;
                     }
                     try {
-                        if (!Character.isUpperCase(genre.charAt(0))) {
-                            throw new javaException("First Letter should be / would only be in Uppercase. TRY AGAIN.");
+                        if (!Character.isUpperCase(artist.charAt(0))) {
+                            throw new javaException("First letter should be in Uppercase. TRY AGAIN.");
                         }
                     } catch (javaException e) {
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("   WARNING!!!                                                     ");
                         System.out.println(e.getMessage());
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        input.nextLine();
+                        break;
+                    }
+
+
+                    // ==============================================================================
+                    System.out.println("\n===============================================================");
+                    System.out.print("[4.] Genre of Music: ");
+                    genre = input.next();
+
+                    try {
+                        if (!Character.isUpperCase(genre.charAt(0))) {
+                            throw new javaException("First letter should be in uppercase. TRY AGAIN.");
+                        }
+                    } catch (javaException e) {
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("   WARNING!!!                                                     ");
+                        System.out.println(e.getMessage());
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         input.nextLine();
                         break;
                     }
 
                     // ==============================================================================
-                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    System.out.print("    Is this one of your favorites? y/n : ");
+                    System.out.println("\n===============================================================");
+                    System.out.print("[5.] IS THIS ONE OF YOUR FAVORITE? [YES/NO]: ");
                     fave = input.next();
                     try {
                         if (!fave.equalsIgnoreCase("yes") && !fave.equalsIgnoreCase("no")) {
@@ -92,26 +115,10 @@ public class MusicLife {
                             throw new javaException("Please input only YES or NO. TRY AGAIN.");
                         }   
                     } catch (javaException e) {
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("   WARNING!!!                                                     ");
                         System.out.println(e.getMessage());
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-                        input.nextLine();
-                        break;
-                    }
-
-                    // ==============================================================================
-                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    System.out.print("    Genre of Music: ");
-                    genre = input.next();
-
-                    try {
-                        if (!Character.isUpperCase(genre.charAt(0))) {
-                            throw new javaException("First Letter should be / would only be in Uppercase. TRY AGAIN.");
-                        }
-                    } catch (javaException e) {
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-                        System.out.println(e.getMessage());
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         input.nextLine();
                         break;
                     }
@@ -120,9 +127,10 @@ public class MusicLife {
 
                     Classification mus = new Classification(genre,artist,name,fave,identify);
                     musicList.add(mus);
-                    System.out.println("\n#########################################################\n");
-                    System.out.println("\n           Song Added to the List Successfully!\n");
-                    System.out.println("\n#########################################################\n");
+                    System.out.println("#########################################################");
+                    System.out.println("##    CONFIRMED!!!                                     ##");
+                    System.out.println("##           Song Added to the List Successfully!      ##");
+                    System.out.println("#########################################################\n");
 
                     break;
 //  *********************************************************************************************************************************************
@@ -164,13 +172,13 @@ public class MusicLife {
 //  *********************************************************************************************************************************************
 
                 case 'C':
-                    System.out.println("\n#########################################################\n");
-                    System.out.println("       TOTAL NUMBER OF SONG LISTED : " + musicList.size());
-                    System.out.println("\n#########################################################\n");                 
+                    System.out.println("#########################################################");
+                    System.out.println("       TOTAL NUMBER OF SONG LISTED :  " + musicList.size());
+                    System.out.println("#########################################################\n");                 
                     if(musicList.isEmpty()){
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-                        System.out.println("              THERE ARE NO SONGS TO DISPLAY");
-                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println("             THERE ARE NO SONGS TO DISPLAY \n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                     }else{
                         System.out.print("\tIDENTIFIER \t=========== SONG NAME \t===========\t ARTIST NAME \t===========\t GENRE \t===========\t FAVE OR NOT\n");
 
@@ -181,18 +189,29 @@ public class MusicLife {
                     }
                     break;
 
+                // case 'D':
+                //     int musIndex = -1;
+                //     System.out.println("Enter song")
+
 //  *********************************************************************************************************************************************
                 case 'X':
                     musicList.clear();
-                    System.out.print("\n=====================================================================\n"); 
-                    System.out.println("\n******* THANK YOU FOR USING THIS SIMPLE APPLICATION. ADIOS! *******");  
-                    System.out.print("\n=====================================================================\n\n"); 
+                    System.out.println("          ================                ================="); 
+                    System.out.println("      =======================          ========================="); 
+                    System.out.println(" ==============================     ==============================="); 
+                    System.out.println(" =======                                                     ======"); 
+                    System.out.println("  *****  THANK YOU FOR USING THIS SIMPLE APPLICATION. ADIOS!  *****"); 
+                    System.out.println("  ======                                                     ====="); 
+                    System.out.println("    ============================================================"); 
+                    System.out.println("        ====================================================="); 
+                    System.out.println("            =============================================n\n"); 
                     break;
 //  *********************************************************************************************************************************************            
                 default:
-                    System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
-                    System.out.println("\n    JUST PICK FROM THE GIVEN OPTIONS ABOVE. PLEASE TRY AGAIN. ");
-                    System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                    System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                    System.out.println("XX   WARNING!!!                                                          XX ");
+                    System.out.println("XX          JUST PICK FROM THE GIVEN OPTIONS ABOVE. PLEASE TRY AGAIN.    XX");
+                    System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                     break;
             } 
         }while (choice != 'X');
