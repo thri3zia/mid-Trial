@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.regex.*;
 
@@ -24,14 +25,12 @@ public class MusicLife {
         System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
  
         do{
-            // System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            // System.out.println("  @@       *******      YOUR OWN SONG LIST        *******      @@ ");
-            // System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            System.out.println("\n");
             System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ");
             System.out.println("  @@                  Choose from below:                       @@ ");
-            System.out.println("  @@                     [A] Add                               @@ ");
-            System.out.println("  @@                     [B] Remove                            @@ "); 
-            System.out.println("  @@                     [C] Display                           @@ ");
+            System.out.println("  @@                     [A] Add Song                          @@ ");
+            System.out.println("  @@                     [B] Remove Song                       @@ "); 
+            System.out.println("  @@                     [C] Display List                      @@ ");
             System.out.println("  @@                     [X] Exit                              @@ ");
             System.out.println("  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
             System.out.print("Selected option: ");
@@ -56,13 +55,11 @@ public class MusicLife {
                         break;
                     }
                     // ==============================================================================
-                    System.out.println("\n===============================================================");
-                    System.out.print("\n[2.] NAME OF THE SONG: ");
+                    System.out.print("[2.] NAME OF THE SONG: ");
                     name = input.next();
                     
                     // ==============================================================================
-                    System.out.println("\n===============================================================");
-                    System.out.print("\n[3.] NAME OF THE ARTIST/SINGER: ");
+                    System.out.print("[3.] NAME OF THE ARTIST/SINGER: ");
                     artist = input.next();
                     p = Pattern.compile("[^A-Za-z0-9 ]");
                     m = p.matcher(name);
@@ -88,8 +85,7 @@ public class MusicLife {
 
 
                     // ==============================================================================
-                    System.out.println("\n===============================================================");
-                    System.out.print("[4.] Genre of Music: ");
+                    System.out.print("[4.] GENRE OF THE SONG: ");
                     genre = input.next();
 
                     try {
@@ -106,7 +102,6 @@ public class MusicLife {
                     }
 
                     // ==============================================================================
-                    System.out.println("\n===============================================================");
                     System.out.print("[5.] IS THIS ONE OF YOUR FAVORITE? [YES/NO]: ");
                     fave = input.next();
                     try {
@@ -150,9 +145,10 @@ public class MusicLife {
                             }
                         }
                     } catch (javaException e) {
-                        System.out.println("\n#########################################################\n");
+                        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                        System.out.println("   CONFIRMED!!!                                                     ");
                         System.out.println(e.getMessage());
-                        System.out.println("\n#########################################################\n");
+                        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
                         input.nextLine();
                         break;
                     }
@@ -162,9 +158,10 @@ public class MusicLife {
                                 throw new javaException("OH! SONG NOT FOUND. ADD SOME."); 
                         }
                     } catch (javaException e) {
-                        System.out.println("\n#########################################################\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        System.out.println("   WARNING!!!                                                     ");
                         System.out.println(e.getMessage());
-                        System.out.println("\n#########################################################\n");
+                        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         input.nextLine();
                         break;
                     }
@@ -180,18 +177,16 @@ public class MusicLife {
                         System.out.println("             THERE ARE NO SONGS TO DISPLAY \n");
                         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                     }else{
-                        System.out.print("\tIDENTIFIER \t=========== SONG NAME \t===========\t ARTIST NAME \t===========\t GENRE \t===========\t FAVE OR NOT\n");
-
+                        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+                        System.out.println("::\tIDENTIFIER \t    SONG NAME \t\t   ARTIST NAME \t\t       GENRE \t\t    FAVE OR NOT            ::");
+                        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");;
                         for (i = 0; i < musicList.size(); i++) {
                         mus = musicList.get(i);
-                        System.out.println("\t"+mus.getIdentify() + "\t\t\t" + mus.getName() + "\t\t\t" + mus.getArtist() + "\t\t\t" + mus.getGenre() + "\t\t\t" + mus.getFave());
+                        System.out.println("::\t  "+mus.getIdentify() + "\t\t\t" + mus.getName() + "\t\t\t" + mus.getArtist() + "\t\t\t" + mus.getGenre() + "\t\t\t" + mus.getFave() + "\t           ::");
+                        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
                     }
                     }
                     break;
-
-                // case 'D':
-                //     int musIndex = -1;
-                //     System.out.println("Enter song")
 
 //  *********************************************************************************************************************************************
                 case 'X':
