@@ -25,11 +25,14 @@ public class MusicLife {
  
         do{
             System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            System.out.println("  @@       *******      YOUR OWN SONG LIST        *******      @@ ");
+            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
             System.out.println("  @@                  Choose from below:                       @@ ");
             System.out.print("    @@                      A. Add                               @@ ");
-            System.out.print("\n  @@                      B. Remove");
-            System.out.print("\n  @@                      C. Display");
-            System.out.print("\n  @@                      X. Exit");
+            System.out.print("\n  @@                      B. Remove                            @@ "); 
+            System.out.print("\n  @@                      C. Display                           @@ ");
+            System.out.print("\n  @@                      X. Exit                              @@");
             System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
             System.out.print("\nSelected option: ");
@@ -38,8 +41,9 @@ public class MusicLife {
            switch (choice) {
                  
                 case 'A':
-                    System.out.println("\n***** You are now going to ADD the details about Music *****");
-                    System.out.print("Your own identification name for the song : ");
+                    System.out.println("\n***** ADD THE CORRESPONDING DETAILS *****");
+                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                    System.out.print("    Your own identifier for the song : ");
                     identify = input.next();
                     Pattern p = Pattern.compile("[^A-Za-z]");
                     Matcher m = p.matcher(identify);
@@ -50,13 +54,13 @@ public class MusicLife {
                         break;
                     }
                     // ==============================================================================
-
-                    System.out.print("Name of the Song : ");
+                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                    System.out.print("    Name of the Song : ");
                     name = input.next();
                     
                     // ==============================================================================
-
-                    System.out.print("Name of the Singer : ");
+                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                    System.out.print("    Name of the Singer : ");
                     artist = input.next();
                     p = Pattern.compile("[^A-Za-z0-9 ]");
                     m = p.matcher(name);
@@ -66,10 +70,21 @@ public class MusicLife {
                         System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                         break;
                     }
+                    try {
+                        if (!Character.isUpperCase(genre.charAt(0))) {
+                            throw new javaException("First Letter should be / would only be in Uppercase. TRY AGAIN.");
+                        }
+                    } catch (javaException e) {
+                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        System.out.println(e.getMessage());
+                        System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+                        input.nextLine();
+                        break;
+                    }
 
                     // ==============================================================================
-
-                    System.out.print("Is this one of your favorites? y/n : ");
+                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                    System.out.print("    Is this one of your favorites? y/n : ");
                     fave = input.next();
                     try {
                         if (!fave.equalsIgnoreCase("yes") && !fave.equalsIgnoreCase("no")) {
@@ -85,8 +100,8 @@ public class MusicLife {
                     }
 
                     // ==============================================================================
-
-                    System.out.print("Genre of Music: ");
+                    System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                    System.out.print("    Genre of Music: ");
                     genre = input.next();
 
                     try {
@@ -112,8 +127,8 @@ public class MusicLife {
                     break;
 //  *********************************************************************************************************************************************
                 case 'B':
-                    System.out.println("\n***** You are now going to REMOVE a NUMBER *****");
-                    System.out.print("\nInput the name of song to remove: ");
+                    System.out.println("\n***** REMOVE YOUR SONG *****");
+                    System.out.print("\nInput the Identifer of the song to remove: ");
                     identify = input.next();
                     int i;
                
@@ -150,7 +165,7 @@ public class MusicLife {
 
                 case 'C':
                     System.out.println("\n#########################################################\n");
-                    System.out.println("       Total Number of Inputted Songs : " + musicList.size());
+                    System.out.println("       TOTAL NUMBER OF SONG LISTED : " + musicList.size());
                     System.out.println("\n#########################################################\n");                 
                     if(musicList.isEmpty()){
                         System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
@@ -173,7 +188,7 @@ public class MusicLife {
                     System.out.println("\n******* THANK YOU FOR USING THIS SIMPLE APPLICATION. ADIOS! *******");  
                     System.out.print("\n=====================================================================\n\n"); 
                     break;
-                
+//  *********************************************************************************************************************************************            
                 default:
                     System.out.println("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
                     System.out.println("\n    JUST PICK FROM THE GIVEN OPTIONS ABOVE. PLEASE TRY AGAIN. ");

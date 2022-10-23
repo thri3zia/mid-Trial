@@ -21,8 +21,6 @@ public class Classification{
 
     }
 
-
-
     public Classification(String genre, String artist, String name, String fave, String identify ) {
         this.name = name;
         this.genre = genre;
